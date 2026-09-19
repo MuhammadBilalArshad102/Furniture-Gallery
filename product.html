@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Detail — Furniture Gallery</title>
+<meta name="description" content="Furniture Gallery — full product details, materials, and delivery information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-row">
+    <button class="icon-btn menu-btn" id="menuToggle" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <a href="index.html" class="logo">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10v9M20 10v9M4 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2M6 14h12M4 19h16"/></svg>
+      <span>Furniture<em>Gallery</em></span>
+    </a>
+
+    <div class="search-box">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search products">
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="index.html#shop">Shop</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#footer">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Account">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1.4-3.6 4.6-5.6 7.5-5.6s6.1 2 7.5 5.6"/></svg>
+      </button>
+      <button class="icon-btn" id="cartToggle" aria-label="Open cart">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L20 8H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-box search-box--mobile">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="searchInputMobile" placeholder="Search products…" aria-label="Search products">
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="page-breadcrumb">
+  <div class="wrap" id="pageBreadcrumb">
+    <a href="index.html">Home</a> / <a href="index.html#shop">Shop</a> / <span id="breadcrumbCat">Product</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============ PRODUCT DETAIL ============ -->
+  <section class="pdp-page">
+    <div class="wrap pdp-page__grid">
+      <div class="pdp-page__media">
+        <span class="product-card__badge" id="pdpBadge" hidden></span>
+        <img id="pdpImage" src="" alt="">
+      </div>
+
+      <div class="pdp-page__info">
+        <p class="pdp-breadcrumb" id="pdpCategory"></p>
+        <h2 id="pdpName"></h2>
+        <div class="pdp-page__meta">
+          <div class="pdp-rating" id="pdpRating" aria-hidden="true"></div>
+          <span id="pdpRatingCount"></span>
+        </div>
+        <p class="pdp-price" id="pdpPrice"></p>
+
+        <div class="pdp-qty-row">
+          <span>Quantity</span>
+          <div class="qty-control" id="pdpQtyControl">
+            <button data-action="dec" aria-label="Decrease quantity">−</button>
+            <span id="pdpQty">1</span>
+            <button data-action="inc" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+
+        <button class="btn btn--primary btn--full" id="pdpAddToCart">Add to cart</button>
+
+        <div class="pdp-tabs">
+          <button class="pdp-tab is-active" data-tab="description">Product Detail</button>
+          <button class="pdp-tab" data-tab="delivery">Delivery &amp; Return</button>
+        </div>
+
+        <div class="pdp-tab-panel is-active" data-panel="description">
+          <p id="pdpDescription"></p>
+          <h4>Fits &amp; features</h4>
+          <ul id="pdpFeatures"></ul>
+        </div>
+        <div class="pdp-tab-panel" data-panel="delivery">
+          <p>Free delivery on orders over $500 — allow 5–10 business days for standard shipping, or select express at checkout for 2–3 day delivery.</p>
+          <p>Not the right fit? Return it within 30 days of delivery for a full refund, no questions asked. Items must be unused and in original packaging.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RELATED PRODUCTS ============ -->
+  <section class="pdp-related">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>You May Also Like</h2>
+      </div>
+      <div class="product-grid" id="relatedGrid"><!-- injected by JS --></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer" id="footer">
+  <div class="wrap footer-grid">
+    <div class="footer-col">
+      <h4>Customer Service</h4>
+      <a href="#">Help &amp; FAQs</a>
+      <a href="#">Return &amp; Refund</a>
+      <a href="#">Shipping Policy</a>
+      <a href="#">Customs and Taxes</a>
+      <a href="#">Customer's Reviews</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Furniture Gallery</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Special Deals &amp; Offers</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Help Center</h4>
+      <a href="#">Order Information</a>
+      <a href="#">Shipping Options</a>
+      <a href="#">International Shipping</a>
+      <a href="#">Payment Options</a>
+    </div>
+    <div class="footer-col">
+      <h4>Return &amp; Warranty</h4>
+      <a href="#">Returns &amp; Exchange Policy</a>
+      <a href="#">Returns Center</a>
+      <a href="#">Warranty Policy</a>
+      <a href="#">Warranty Registration</a>
+      <a href="#">Warranty Repair Center</a>
+    </div>
+  </div>
+  <div class="wrap footer-newsletter">
+    <div>
+      <h4>Get promotions &amp; news</h4>
+      <p>Subscribe for early access to new drops and seasonal sales.</p>
+    </div>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Your email" aria-label="Email address">
+      <button type="submit" class="btn btn--primary btn--small">Sign up</button>
+    </form>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© <span id="year"></span> Furniture Gallery. All rights reserved.</p>
+    <div class="footer-social">
+      <a href="#" aria-label="Facebook">f</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="Pinterest">p</a>
+      <a href="#" aria-label="X">x</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ CART DRAWER ============ -->
+<div class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer__header">
+    <h3>Shopping cart</h3>
+    <button class="icon-btn" id="cartClose" aria-label="Close cart">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer__items" id="cartItems"><!-- injected by JS --></div>
+  <div class="cart-drawer__footer">
+    <div class="cart-total-row">
+      <span>Subtotal</span>
+      <strong id="cartSubtotal">$0</strong>
+    </div>
+    <p class="cart-note">Shipping and taxes calculated at checkout.</p>
+    <button class="btn btn--primary btn--full" id="checkoutBtn">Checkout</button>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/product-page.js"></script>
+</body>
+</html>
